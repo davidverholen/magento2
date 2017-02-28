@@ -99,7 +99,7 @@ class Security implements \Magento\Framework\Notification\MessageInterface
         /** @var $http \Magento\Framework\HTTP\Adapter\Curl */
         $http = $this->_curlFactory->create();
         $http->setConfig(['timeout' => $this->_verificationTimeOut]);
-        $http->write(\Zend_Http_Client::POST, $unsecureBaseURL . $this->_filePath);
+        $http->write(\Zend\Http\Request::METHOD_POST, $unsecureBaseURL . $this->_filePath);
         $responseBody = $http->read();
         $responseCode = \Zend_Http_Response::extractCode($responseBody);
         $http->close();

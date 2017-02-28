@@ -392,7 +392,7 @@ abstract class Authorizenet extends \Magento\Payment\Model\Method\Cc
 
         $request->setXDelimChar(self::RESPONSE_DELIM_CHAR);
         $client->setParameterPost($request->getData());
-        $client->setMethod(\Zend_Http_Client::POST);
+        $client->setMethod(\Zend\Http\Request::METHOD_POST);
 
         try {
             $response = $client->request();

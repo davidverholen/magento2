@@ -108,7 +108,7 @@ class TransactionService
         $client->setUri($url);
         $client->setConfig(['timeout' => self::CONNECTION_TIMEOUT]);
         $client->setHeaders(['Content-Type: text/xml']);
-        $client->setMethod(\Zend_Http_Client::POST);
+        $client->setMethod(\Zend\Http\Request::METHOD_POST);
         $client->setRawData($requestBody);
 
         $debugData = ['url' => $url, 'request' => $this->removePrivateDataFromXml($requestBody)];

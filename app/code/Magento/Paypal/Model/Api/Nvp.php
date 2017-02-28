@@ -1186,7 +1186,7 @@ class Nvp extends \Magento\Paypal\Model\Api\AbstractApi
             }
             $http->setConfig($config);
             $http->write(
-                \Zend_Http_Client::POST,
+                \Zend\Http\Request::METHOD_POST,
                 $this->getApiEndpoint(),
                 '1.1',
                 $this->_headers,

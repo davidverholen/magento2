@@ -961,7 +961,7 @@ class Carrier extends \Magento\Dhl\Model\AbstractDhl implements \Magento\Shippin
         $client->setConfig(['maxredirects' => 0, 'timeout' => 30]);
         $client->setRawData(utf8_encode($request));
 
-        return $client->request(\Zend_Http_Client::POST)->getBody();
+        return $client->request(\Zend\Http\Request::METHOD_POST)->getBody();
     }
 
     /**

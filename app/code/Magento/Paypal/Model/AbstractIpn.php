@@ -86,7 +86,7 @@ class AbstractIpn
         $this->_addDebugData('postback_to', $postbackUrl);
 
         $httpAdapter->setConfig(['verifypeer' => $this->_config->getValue('verifyPeer')]);
-        $httpAdapter->write(\Zend_Http_Client::POST, $postbackUrl, '1.1', ['Connection: close'], $postbackQuery);
+        $httpAdapter->write(\Zend\Http\Request::METHOD_POST, $postbackUrl, '1.1', ['Connection: close'], $postbackQuery);
         try {
             $postbackResult = $httpAdapter->read();
         } catch (\Exception $e) {

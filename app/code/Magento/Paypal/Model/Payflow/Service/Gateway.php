@@ -85,7 +85,7 @@ class Gateway implements GatewayInterface
             : $config->getValue('transaction_url')
         );
         $client->setConfig($clientConfig);
-        $client->setMethod(\Zend_Http_Client::POST);
+        $client->setMethod(\Zend\Http\Request::METHOD_POST);
         $client->setParameterPost($request->getData());
         $client->setHeaders(
             [

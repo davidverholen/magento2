@@ -144,7 +144,7 @@ class ZendTest extends \PHPUnit_Framework_TestCase
     private function setClientTransferObjects()
     {
         $config = ['key1' => 'value1', 'key2' => 'value2'];
-        $method = \Zend_Http_Client::POST;
+        $method = \Zend\Http\Request::METHOD_POST;
         $headers = ['key1' => 'value1', 'key2' => 'value2'];
         $body = 'Body content';
         $uri = 'https://example.com/listener';

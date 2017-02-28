@@ -210,7 +210,7 @@ class Feed extends \Magento\Framework\Model\AbstractModel
                 'referer'   => $this->urlBuilder->getUrl('*/*/*')
             ]
         );
-        $curl->write(\Zend_Http_Client::GET, $this->getFeedUrl(), '1.0');
+        $curl->write(\Zend\Http\Request::METHOD_GET, $this->getFeedUrl(), '1.0');
         $data = $curl->read();
         if ($data === false) {
             return false;
