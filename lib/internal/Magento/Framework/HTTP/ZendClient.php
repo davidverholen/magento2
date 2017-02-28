@@ -11,6 +11,9 @@
  */
 namespace Magento\Framework\HTTP;
 
+/**
+ * @deprecated
+ */
 class ZendClient extends \Zend_Http_Client
 {
     /**
