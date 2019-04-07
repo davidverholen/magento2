@@ -28,22 +28,22 @@ define([
          * @return {String}
          */
         getShippingMethodTitle: function () {
-            var shippingMethod = quote.shippingMethod();
+            var shippingMethod,
+                shippingTitleParts = [];
 
-            var shippingMethodTitle = '';
-            var shippingTitle = '';
+            shippingMethod = quote.shippingMethod();
+
+            if (typeof shippingMethod['carrier_title'] !== 'undefined'
+                && shippingMethod['carrier_title'].trim().length !== 0){
+                shippingTitleParts.push(shippingMethod['carrier_title']);
+            }
 
             if (typeof shippingMethod['method_title'] !== 'undefined'
                 && shippingMethod['method_title'].trim().length !== 0) {
-                shippingMethodTitle = shippingMethod['method_title'];
+                shippingTitleParts.push(shippingMethod['method_title']);
             }
 
-            if (typeof shippingMethod['carrier_title'] !== 'undefined'
-                &&  shippingMethod['carrier_title'].trim().length !== 0) {
-                shippingTitle = shippingMethod['carrier_title'] + ' - ';
-            }
-
-            return shippingMethod ? shippingTitle + shippingMethodTitle : '';
+            return shippingTitleParts.join(' - ');
         },
 
         /**
